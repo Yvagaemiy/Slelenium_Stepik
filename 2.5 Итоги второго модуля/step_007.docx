@@ -1,0 +1,624 @@
+Ссылка https://www.selenium.dev/selenium/docs/api/py/webdriver_support/selenium.webdriver.support.expected_conditions.html
+
+
+selenium.webdriver.support.expected_conditions¶
+Функции
+
+alert_is_present()
+
+Ожидание проверки наличия оповещения в данный момент и перехода к нему.
+
+all_of(* ожидаемые условия)
+
+Ожидание того, что все из множества ожидаемых условий сбудутся.
+
+any_of(* ожидаемые условия)
+
+Ожидание того, что любое из нескольких ожидаемых условий окажется верным.
+
+element_attribute_to_include(локатор, атрибут_)
+
+Ожидание проверки того, содержится ли указанный атрибут в заданном элементе.
+
+element_located_selection_state_to_be(...)
+
+Ожидание: найти элемент и проверить, находится ли он в указанном состоянии выбора.
+
+element_located_to_be_selected(локатор)
+
+Выбирается ожидаемое местоположение элемента.
+
+element_selection_state_to_be(элемент, ...)
+
+Ожидание проверки того, выбран ли данный элемент.
+
+element_to_be_clickable(отметка)
+
+Ожидание: элемент должен быть виден и активен, чтобы вы могли нажать на него.
+
+element_to_be_selected(элемент)
+
+Выбрано ожидание для проверки выбора.
+
+frame_to_be_available_and_switch_to_it(локатор)
+
+Ожидание проверки доступности заданного фрейма для переключения.
+
+invisibility_of_element(элемент)
+
+Ожидание для проверки того, что элемент либо невидим, либо отсутствует в DOM.
+
+invisibility_of_element_located(локатор)
+
+Ожидание для проверки того, что элемент либо невидим, либо отсутствует в DOM.
+
+new_window_is_opened(текущие дескрипторы)
+
+Ожидание того, что откроется новое окно и количество оконных ручек увеличится.
+
+none_of(* ожидаемые условия)
+
+Ожидание того, что ни одно из ожидаемых условий не будет выполнено.
+
+number_of_windows_to_be(num_windows)
+
+Ожидание того, что количество окон будет равно определённому значению.
+
+presence_of_all_elements_located(локатор)
+
+Проверка наличия хотя бы одного элемента на веб-странице.
+
+presence_of_element_located(локатор)
+
+Ожидание проверки наличия элемента в DOM страницы.
+
+staleness_of(элемент)
+
+Дождитесь, пока элемент перестанет быть привязанным к DOM.
+
+text_to_be_present_in_element(локатор, текст_)
+
+Ожидание проверки наличия заданного текста в указанном элементе.
+
+text_to_be_present_in_element_attribute(...)
+
+Ожидание проверки наличия заданного текста в атрибуте элемента.
+
+text_to_be_present_in_element_value(локатор, ...)
+
+Ожидание проверки наличия заданного текста в значении элемента.
+
+title_contains(название)
+
+Проверка того, содержит ли заголовок подстроку с учётом регистра.
+
+title_is(название)
+
+Ожидание проверки заголовка страницы.
+
+url_changes(url)
+
+Ожидание проверки текущего URL-адреса отличается от проверки заданной строки.
+
+url_contains(url)
+
+Проверка того, содержит ли текущий URL подстроку, чувствительную к регистру.
+
+url_matches(шаблон)
+
+Ожидание проверки текущего URL.
+
+url_to_be(url)
+
+Ожидание проверки текущего URL.
+
+visibility_of(элемент)
+
+Ожидание проверки видимости элемента, который, как известно, присутствует в DOM страницы.
+
+visibility_of_all_elements_located(локатор)
+
+Проверка того, что все элементы присутствуют в DOM страницы и видны.
+
+visibility_of_any_elements_located(локатор)
+
+Ожидание проверки наличия хотя бы одного видимого элемента на веб-странице.
+
+visibility_of_element_located(локатор)
+
+Ожидание проверки наличия элемента в DOM страницы и его видимости.
+
+selenium.webdriver.support.expected_conditions.title_is(title: str) → Callable[[WebDriver], bool][source]¶
+Ожидание проверки заголовка страницы.
+
+Параметры:
+названиеstr
+Ожидаемое название, которое должно точно соответствовать запросу.
+
+Возвращает:
+логическое значение: True, если заголовок соответствует запросу, False — в противном случае.
+
+selenium.webdriver.support.expected_conditions.title_contains(title: str) → Callable[[WebDriver], bool][source]¶
+Проверка того, содержит ли заголовок подстроку с учётом регистра.
+
+Параметры:
+названиеstr
+Ожидается фрагмент заголовка.
+
+Возвращает:
+Логическое значение: True, если заголовок соответствует запросу, False — в противном случае.
+
+selenium.webdriver.support.expected_conditions.наличие_элемента_в_определенном_месте(указатель: кортеж[str, str]) → Callable[[WebDriver | WebElement], WebElement][источник]¶
+Ожидание проверки наличия элемента в DOM страницы. Это не обязательно означает, что элемент виден.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+Возвращает:
+WebElement: WebElement после его обнаружения.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "q")))
+selenium.webdriver.support.expected_conditions.url_contains(url: str) → Callable[[WebDriver], bool][source]¶
+Проверка того, содержит ли текущий URL подстроку, чувствительную к регистру.
+
+Параметры:
+urlstr
+Ожидается фрагмент URL-адреса.
+
+Возвращает:
+логическое значение: True, если URL-адрес совпадает, False — в противном случае.
+
+selenium.webdriver.support.expected_conditions.url_matches(pattern: str) → Callable[[WebDriver], bool][source]¶
+Ожидание проверки текущего URL.
+
+Параметры:
+шаблонstr
+Шаблон для сопоставления с текущим URL.
+
+Возвращает:
+логическое значение: True, если шаблон совпадает, False — в противном случае.
+
+Примечания:
+Более мощный инструмент, чем url_contains, поскольку поддерживает регулярные выражения.
+
+selenium.webdriver.support.expected_conditions.url_to_be(url: str) → Callable[[WebDriver], bool][source]¶
+Ожидание проверки текущего URL.
+
+Параметры:
+urlstr
+Ожидаемый URL-адрес, который должен точно соответствовать запросу.
+
+Возвращает:
+логическое значение: True, если URL-адрес совпадает, False — в противном случае.
+
+selenium.webdriver.support.expected_conditions.url_changes(url: str) → Callable[[WebDriver], bool][source]¶
+Ожидание проверки текущего URL-адреса отличается от проверки заданной строки.
+
+Параметры:
+urlstr
+Ожидаемый URL-адрес, который не обязательно должен совпадать.
+
+Возвращает:
+логическое значение: True, если URL не соответствует запросу, False — в противном случае
+
+selenium.webdriver.support.expected_conditions.visibility_of_element_located(locator: tuple[str, str]) → Callable[[WebDriver | WebElement], Literal[False] | WebElement][source]¶
+Ожидание проверки того, что элемент присутствует в DOM страницы и является видимым. Видимость означает, что элемент не только отображается, но и имеет высоту и ширину больше 0.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+Возвращает:
+WebElement: WebElement после того, как он будет найден и станет видимым.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "q")))
+selenium.webdriver.support.expected_conditions.visibility_of(element: WebElement) → Callable[[Any], Literal[False] | WebElement][source]¶
+Ожидание проверки видимости элемента, который, как известно, присутствует в DOM страницы.
+
+Параметры:
+элементWebElement
+Веб-элемент для проверки.
+
+Возвращает:
+WebElement: WebElement после того, как он станет видимым.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> element = WebDriverWait(driver, 10).until(EC.visibility_of(driver.find_element(By.NAME, "q")))
+Примечания:
+Видимость означает, что элемент не только отображается, но и имеет высоту и ширину, превышающие 0. element — это WebElement, который возвращает (тот же самый) WebElement, как только становится видимым
+
+selenium.webdriver.support.expected_conditions.наличие_всех_элементов_в_определенном_месте(указатель: кортеж[str, str]) → Callable[[WebDriver | WebElement], список[WebElement]][источник]¶
+Проверка наличия хотя бы одного элемента на веб-странице.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+Возвращает:
+List[WebElement]: список WebElement после их обнаружения.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> elements = WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "foo")))
+selenium.webdriver.support.expected_conditions.visibility_of_any_elements_located(locator: кортеж[str, str]) → Callable[[WebDriver | WebElement], список[WebElement]][источник]¶
+Ожидание проверки наличия хотя бы одного видимого элемента на веб-странице.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+Возвращает:
+List[WebElement]: список WebElements после того, как они будут найдены и станут видимыми.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> elements = WebDriverWait(driver, 10).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "foo")))
+selenium.webdriver.support.expected_conditions.visibility_of_all_elements_located(locator: кортеж[str, str]) → Callable[[WebDriver | WebElement], список[WebElement] | Литерал[False]][источник]¶
+Проверка того, что все элементы присутствуют в DOM страницы и являются видимыми. Видимость означает, что элементы не только отображаются, но и имеют высоту и ширину больше 0.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элементов.
+
+Возвращает:
+List[WebElement]: список WebElements после того, как они будут найдены и станут видимыми.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> elements = WebDriverWait(driver, 10).until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "foo")))
+]str,str[ кортеж:локатор( текст_который_должен_присутствовать_в_элементеselenium.webdriver.support.expected_conditions., текст_: str) → Callable[[WebDriver | WebElement], bool][исходный код]¶
+Ожидание проверки наличия заданного текста в указанном элементе.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+текст_строка
+Текст, который должен присутствовать в элементе.
+
+Возвращает:
+Логическое значение: True, если текст присутствует, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_text_in_element = WebDriverWait(driver, 10).until(
+ EC.text_to_be_present_in_element((By.CLASS_NAME, "foo"), "bar")
+ )
+]str,str[ кортеж:локатор( текст_который_должен_присутствовать_в_значении_элементаselenium.webdriver.support.expected_conditions., текст_: str) → Callable[[WebDriver | WebElement], bool][источник]¶
+Ожидание проверки наличия заданного текста в значении элемента.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+текст_строка
+Текст, который должен присутствовать в значении элемента.
+
+Возвращает:
+Логическое значение: True, если текст присутствует, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_text_in_element_value = WebDriverWait(driver, 10).until(
+...     EC.text_to_be_present_in_element_value((By.CLASS_NAME, "foo"), "bar")
+... )
+]str,str[ кортеж:локатор( текст_который_должен_присутствовать_в_атрибуте_элементаselenium.webdriver.support.expected_conditions., атрибут_: str, текст_: str) → Callable[[WebDriver | WebElement], bool][источник]¶
+Ожидание проверки наличия заданного текста в атрибуте элемента.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+атрибут_строка
+Атрибут для проверки текста.
+
+текст_строка
+Текст, который должен присутствовать в атрибуте элемента.
+
+Возвращает:
+Логическое значение: True, если текст присутствует, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_text_in_element_attribute = WebDriverWait(driver, 10).until(
+...     EC.text_to_be_present_in_element_attribute((By.CLASS_NAME, "foo"), "bar", "baz")
+... )
+selenium.webdriver.support.expected_conditions.frame_to_be_available_and_switch_to_it(locator: tuple[str, str] | str | WebElement) → Callable[[WebDriver], bool][source]¶
+Ожидание проверки доступности заданного фрейма для переключения.
+
+Параметры:
+локаторUnion[Tuple[str, str], str, WebElement]
+Используется для поиска кадра.
+
+Возвращает:
+логическое значение: True, если кадр доступен, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it("frame_name"))
+Примечания:
+Если фрейм доступен, он переключает указанный драйвер на указанный фрейм.
+
+selenium.webdriver.support.expected_conditions.invisibility_of_element_located(locator: WebElement | tuple[str, str]) → Callable[[WebDriver | WebElement], WebElement | bool][source]¶
+Ожидание для проверки того, что элемент либо невидим, либо отсутствует в DOM.
+
+Параметры:
+локаторUnion[WebElement, кортеж[str, str]]
+Используется для поиска элемента.
+
+Возвращает:
+Логическое значение: True, если элемент невидим или отсутствует, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_invisible = WebDriverWait(driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "foo")))
+Примечания:
+В случае NoSuchElement возвращается true, поскольку элемент не найден
+
+присутствует в DOM. Блок try проверяет, присутствует ли элемент, но не виден. — в случае с устаревшей ссылкой на элемент возвращается true, поскольку устаревшая ссылка на элемент означает, что элемент больше не виден.
+
+selenium.webdriver.support.expected_conditions.invisibility_of_element(element: WebElement | tuple[str, str]) → Callable[[WebDriver | WebElement], WebElement | bool][source]¶
+Ожидание для проверки того, что элемент либо невидим, либо отсутствует в DOM.
+
+Параметры:
+элементUnion[WebElement, кортеж[str, str]]
+Используется для поиска элемента.
+
+Возвращает:
+Логическое значение: True, если элемент невидим или отсутствует, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_invisible_or_not_present = WebDriverWait(driver, 10).until(
+...     EC.invisibility_of_element(driver.find_element(By.CLASS_NAME, "foo"))
+... )
+selenium.webdriver.support.expected_conditions.element_to_be_clickable(mark: WebElement | tuple[str, str]) → Callable[[WebDriver | WebElement], Literal[False] | WebElement][source]¶
+Ожидание: элемент должен быть виден и активен, чтобы вы могли нажать на него.
+
+Параметры:
+markUnion[WebElement, Tuple[str, str]]
+Используется для поиска элемента.
+
+Возвращает:
+WebElement: WebElement после того, как он будет найден и станет кликабельным.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "foo")))
+selenium.webdriver.support.expected_conditions.staleness_of(element: WebElement) → Callable[[Any], bool][source]¶
+Дождитесь, пока элемент перестанет быть привязанным к DOM.
+
+Параметры:
+элементWebElement
+Элемент, которого нужно дождаться.
+
+Возвращает:
+логическое значение: false, если элемент всё ещё прикреплён к DOM, true — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_element_stale = WebDriverWait(driver, 10).until(EC.staleness_of(driver.find_element(By.CLASS_NAME, "foo")))
+selenium.webdriver.support.expected_conditions.элемент_который_нужно_выбрать(элемент: WebElement) → Callable[[Any], bool][источник]¶
+Выбрано ожидание для проверки выбора.
+
+Параметры:
+элементWebElement
+Веб-элемент для проверки.
+
+Возвращает:
+логическое значение: True, если элемент выбран, False — если нет.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_selected = WebDriverWait(driver, 10).until(EC.element_to_be_selected(driver.find_element(
+ By.CLASS_NAME, "foo"))
+ )
+selenium.webdriver.support.expected_conditions.элемент_который_нужно_выбрать(указатель: кортеж[str, str]) → Callable[[WebDriver | WebElement], bool][источник]¶
+Выбирается ожидаемое местоположение элемента.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+Возвращает:
+логическое значение: True, если элемент выбран, False — если нет.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_selected = WebDriverWait(driver, 10).until(EC.element_located_to_be_selected((By.CLASS_NAME, "foo")))
+WebElement:element(element_selection_state_to_be selenium.webdriver.support.expected_conditions., is_selected: bool) → Callable[[Any], bool][source]¶
+Ожидание проверки того, выбран ли данный элемент.
+
+Параметры:
+элементWebElement
+Веб-элемент для проверки.
+
+is_selected : bool
+
+Возвращает:
+логическое значение: True, если состояние выбора элемента совпадает с is_selected
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_selected = WebDriverWait(driver, 10).until(
+...     EC.element_selection_state_to_be(driver.find_element(By.CLASS_NAME, "foo"), True)
+... )
+]str,str[ кортеж:локатор( состояние_выбора_элемента_в_котором_находится_элементselenium.webdriver.support.expected_conditions., выбран: bool) → Callable[[WebDriver | WebElement], bool][источник]¶
+Ожидание: найти элемент и проверить, находится ли он в указанном состоянии выбора.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+is_selected : bool
+
+Возвращает:
+логическое значение: True, если состояние выбора элемента совпадает с is_selected
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_selected = WebDriverWait(driver, 10).until(EC.element_located_selection_state_to_be(
+ (By.CLASS_NAME, "foo"), True)
+ )
+selenium.webdriver.support.expected_conditions.количество_окон_должно_быть(num_windows: int) → Callable[[WebDriver], bool][источник]¶
+Ожидание того, что количество окон будет равно определённому значению.
+
+Параметры:
+num_windowsint
+Ожидаемое количество окон.
+
+Возвращает:
+Логическое значение: True, если количество окон совпадает, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_number_of_windows = WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
+selenium.webdriver.support.expected_conditions.открыто_новое_окно(текущие_дескрипторы: список[str]) → Callable[[WebDriver], bool][источник]¶
+Ожидание того, что откроется новое окно и количество оконных ручек увеличится.
+
+Параметры:
+current_handlesСписок[str]
+Текущее окно обрабатывается.
+
+Возвращает:
+логическое значение: True, если открыто новое окно, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.support.ui import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_new_window_opened = WebDriverWait(driver, 10).until(EC.new_window_is_opened(driver.window_handles))
+selenium.webdriver.support.expected_conditions.alert_is_present() → Callable[[WebDriver], Alert | Literal[False]][source]¶
+Ожидание проверки наличия оповещения в данный момент и перехода к нему.
+
+Возвращает:
+Оповещение: Оповещение о том, что объект найден.
+
+Пример:
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+Примечания:
+Если оповещение есть, оно переключает указанного водителя на себя.
+
+]str,str[ кортеж:локатор( атрибут_элемента_для_включенияselenium.webdriver.support.expected_conditions., атрибут_: str) → Callable[[WebDriver | WebElement], bool][источник]¶
+Ожидание проверки того, содержится ли указанный атрибут в заданном элементе.
+
+Параметры:
+локаторКортеж[str, str]
+Используется для поиска элемента.
+
+атрибут_строка
+Атрибут для проверки.
+
+Возвращает:
+логическое значение: True, если атрибут включен, False — если нет.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> is_attribute_in_element = WebDriverWait(driver, 10).until(
+...     EC.element_attribute_to_include((By.CLASS_NAME, "foo"), "bar")
+... )
+selenium.webdriver.support.expected_conditions.any_of(*expected_conditions: Callable[[D], T]) → Callable[[D], Literal[False] | T][source]¶
+Ожидание того, что любое из нескольких ожидаемых условий окажется верным.
+
+Параметры:
+ожидаемые_условияCallable[[D], T]
+Список ожидаемых условий для проверки.
+
+Возвращает:
+T: результат выполнения первого условия соответствия или False, если ни одно условие не выполняется.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> element = WebDriverWait(driver, 10).until(
+... EC.any_of(EC.presence_of_element_located((By.NAME, "q"),
+... EC.visibility_of_element_located((By.NAME, "q"))))
+Примечания:
+Эквивалентно логическому «ИЛИ». Возвращает результаты первого соответствующего условия или False, если ни одно из условий не соответствует.
+
+selenium.webdriver.support.expected_conditions.all_of(*expected_conditions: Callable[[D], Literal[False] | T]) → Callable[[D], list[T] | Literal[False]][source]¶
+Ожидание того, что все из множества ожидаемых условий сбудутся.
+
+Параметры:
+ожидаемые_условияCallable[[D], Union[T, Literal[False]]]
+Список ожидаемых условий для проверки.
+
+Возвращает:
+List[T]: результаты всех условий соответствия или False, если ни одно из условий не выполняется.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> elements = WebDriverWait(driver, 10).until(
+... EC.all_of(EC.presence_of_element_located((By.NAME, "q"),
+... EC.visibility_of_element_located((By.NAME, "q"))))
+Примечания:
+Эквивалентно логическому «И». Возвращает: если ни одно из ожидаемых условий не выполняется: False. если все ожидаемые условия выполняются: список с возвращаемым значением каждого ожидаемого условия.
+
+selenium.webdriver.support.expected_conditions.none_of(*expected_conditions: Callable[[D], Any]) → Callable[[D], bool][source]¶
+Ожидание того, что ни одно из ожидаемых условий не будет выполнено.
+
+Параметры:
+ожидаемые_условияCallable[[D], Any]
+Список ожидаемых условий для проверки.
+
+Возвращает:
+Логическое значение: True, если ни одно из условий не выполняется, False — в противном случае.
+
+Пример:
+>>> from selenium.webdriver.common.by import By
+>>> from selenium.webdriver.support.ui import WebDriverWait
+>>> from selenium.webdriver.support import expected_conditions as EC
+>>> element = WebDriverWait(driver, 10).until(
+... EC.none_of(EC.presence_of_element_located((By.NAME, "q"),
+... EC.visibility_of_element_located((By.NAME, "q"))))
+Примечания:
+Эквивалентно логическому «НЕ ИЛИ». Возвращает логическое значение
